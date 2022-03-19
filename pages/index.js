@@ -3,24 +3,25 @@ import Image from 'next/image'
 import React from 'react'
 // import styles from '../styles/Home.module.css'
 import { useSelector, useDispatch } from 'react-redux'
+import { actions } from './store/store' 
 
 export default function Home() {
   const counter = useSelector((state)=> state.counter);
   const dispatch = useDispatch();
   const increment = () => {
-    dispatch({type: 'INC'})
+    dispatch(actions.increment())
   }
 
   const decrement = () => {
-    dispatch({type: 'DEC'})
+    dispatch(actions.decrement())
   }
 
   const AddBy = () => {
-    dispatch({type: 'ADD', payLoad: 10})
+    dispatch(actions.addBy())
   }
 
   const DecBy = () => {
-    dispatch({type: 'DEC10', payLoads: 10})
+    dispatch(actions.decBy())
   }
   return (
     <div>
